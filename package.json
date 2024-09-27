@@ -1,0 +1,17 @@
+{
+  "name": "uba-vectortiles",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.4.3"
+  },
+  "dependencies": {
+    "ol": "^10.2.1",
+    "ol-mapbox-style": "^12.3.5",
+    "pmtiles": "^3.2.0"
+  }
+}
