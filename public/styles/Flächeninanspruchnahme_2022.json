@@ -9,9 +9,13 @@
       "tileSize": 256,
       "maxzoom": 20
     },
-    "flaecheninanspruchnahme_dissolved": {
+    "FI_2022_AT_dissolved": {
       "type": "vector",
-      "url": "pmtiles://../tiles/flaecheninanspruchnahme_dissolved.pmtiles"
+      "url": "pmtiles://../data/tiles/FI_2022_AT_dissolved.pmtiles"
+    },
+    "flaecheninanspruchnahme_grid": {
+      "type": "geojson",
+      "data": "../data/flaecheninanspruchnahme_grid.geojson"
     },
     "Austria": {
       "type": "geojson",
@@ -38,8 +42,8 @@
     {
       "filter": ["==", "FI_Code", 101],
       "type": "fill",
-      "source": "flaecheninanspruchnahme_dissolved",
-      "source-layer": "flaecheninanspruchnahme_dissolved",
+      "source": "FI_2022_AT_dissolved",
+      "source-layer": "FI_2022_AT_dissolved",
       "paint": {
         "fill-opacity": 0.7,
         "fill-color": "#000000"
@@ -49,8 +53,8 @@
     {
       "filter": ["==", "FI_Code", 102],
       "type": "fill",
-      "source": "flaecheninanspruchnahme_dissolved",
-      "source-layer": "flaecheninanspruchnahme_dissolved",
+      "source": "FI_2022_AT_dissolved",
+      "source-layer": "FI_2022_AT_dissolved",
       "paint": {
         "fill-opacity": 0.7,
         "fill-color": "#636363"
@@ -60,8 +64,8 @@
     {
       "filter": ["==", "FI_Code", 103],
       "type": "fill",
-      "source": "flaecheninanspruchnahme_dissolved",
-      "source-layer": "flaecheninanspruchnahme_dissolved",
+      "source": "FI_2022_AT_dissolved",
+      "source-layer": "FI_2022_AT_dissolved",
       "paint": {
         "fill-opacity": 0.7,
         "fill-color": "#a8a8a8"
@@ -71,8 +75,8 @@
     {
       "filter": ["==", "FI_Code", 104],
       "type": "fill",
-      "source": "flaecheninanspruchnahme_dissolved",
-      "source-layer": "flaecheninanspruchnahme_dissolved",
+      "source": "FI_2022_AT_dissolved",
+      "source-layer": "FI_2022_AT_dissolved",
       "paint": {
         "fill-opacity": 0.7,
         "fill-color": "#dbee0a"
@@ -82,8 +86,8 @@
     {
       "filter": ["==", "FI_Code", 211],
       "type": "fill",
-      "source": "flaecheninanspruchnahme_dissolved",
-      "source-layer": "flaecheninanspruchnahme_dissolved",
+      "source": "FI_2022_AT_dissolved",
+      "source-layer": "FI_2022_AT_dissolved",
       "paint": {
         "fill-opacity": 0.7,
         "fill-color": "#ff0000"
@@ -93,8 +97,8 @@
     {
       "filter": ["==", "FI_Code", 212],
       "type": "fill",
-      "source": "flaecheninanspruchnahme_dissolved",
-      "source-layer": "flaecheninanspruchnahme_dissolved",
+      "source": "FI_2022_AT_dissolved",
+      "source-layer": "FI_2022_AT_dissolved",
       "paint": {
         "fill-opacity": 0.7,
         "fill-color": "#fd9400"
@@ -104,8 +108,8 @@
     {
       "filter": ["==", "FI_Code", 213],
       "type": "fill",
-      "source": "flaecheninanspruchnahme_dissolved",
-      "source-layer": "flaecheninanspruchnahme_dissolved",
+      "source": "FI_2022_AT_dissolved",
+      "source-layer": "FI_2022_AT_dissolved",
       "paint": {
         "fill-opacity": 0.7,
         "fill-color": "#b10be9"
@@ -115,8 +119,8 @@
     {
       "filter": ["==", "FI_Code", 214],
       "type": "fill",
-      "source": "flaecheninanspruchnahme_dissolved",
-      "source-layer": "flaecheninanspruchnahme_dissolved",
+      "source": "FI_2022_AT_dissolved",
+      "source-layer": "FI_2022_AT_dissolved",
       "paint": {
         "fill-opacity": 0.7,
         "fill-color": "#fa5faa"
@@ -126,8 +130,8 @@
     {
       "filter": ["==", "FI_Code", 220],
       "type": "fill",
-      "source": "flaecheninanspruchnahme_dissolved",
-      "source-layer": "flaecheninanspruchnahme_dissolved",
+      "source": "FI_2022_AT_dissolved",
+      "source-layer": "FI_2022_AT_dissolved",
       "paint": {
         "fill-opacity": 0.7,
         "fill-color": "#ffee01"
@@ -137,8 +141,8 @@
     {
       "filter": ["==", "FI_Code", 300],
       "type": "fill",
-      "source": "flaecheninanspruchnahme_dissolved",
-      "source-layer": "flaecheninanspruchnahme_dissolved",
+      "source": "FI_2022_AT_dissolved",
+      "source-layer": "FI_2022_AT_dissolved",
       "paint": {
         "fill-opacity": 0.7,
         "fill-color": "#0080fd"
@@ -148,8 +152,8 @@
     {
       "filter": ["==", "FI_Code", 400],
       "type": "fill",
-      "source": "flaecheninanspruchnahme_dissolved",
-      "source-layer": "flaecheninanspruchnahme_dissolved",
+      "source": "FI_2022_AT_dissolved",
+      "source-layer": "FI_2022_AT_dissolved",
       "paint": {
         "fill-opacity": 0.7,
         "fill-color": "#c16803"
@@ -159,8 +163,8 @@
     {
       "id": "Umrandung",
       "type": "line",
-      "source": "flaecheninanspruchnahme_dissolved",
-      "source-layer": "flaecheninanspruchnahme_dissolved",
+      "source": "FI_2022_AT_dissolved",
+      "source-layer": "FI_2022_AT_dissolved",
       "paint": {
         "line-color": "#000000",
         "line-width": 2

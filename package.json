@@ -4,9 +4,24 @@
   "scripts": {
     "start": "vite",
     "build": "vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "data:grid:download": "nugget https://data.statistik.gv.at/data/OGDEXT_RASTER_1_STATISTIK_AUSTRIA_L010000_LAEA.zip -d data",
+    "data:grid:unzip": "nunzip data/OGDEXT_RASTER_1_STATISTIK_AUSTRIA_L010000_LAEA.zip -d data",
+    "data:grid": "npm run data:grid:download && npm run data:grid:unzip",
+    "data:fi:geojson": "node scripts/extract-fi-from-gpkg.mjs",
+    "data:fi:dissolve": "mapshaper-xl 16gb data/FI_2022_AT.geojson -dissolve fields=FI_Code -explode -o data/FI_2022_AT_dissolved.geojson ndjson precision=0.0000001",
+    "data:fi:tiles": "tippecanoe data/FI_2022_AT_dissolved.geojson --low-detail=10 --force --output data/FI_2022_AT_dissolved.pmtiles",
+    "data:fi:copy": "shx cp data/FI_2022_AT_dissolved.pmtiles public/data/tiles/",
+    "data:fi": "npm run data:fi:geojson && npm run data:fi:dissolve && npm run data:fi:tiles && npm run data:fi:copy",
+    "data": "npm run data:grid && npm run data:fi"
   },
   "devDependencies": {
+    "@ngageoint/geopackage": "^5.0.2-beta",
+    "fflate": "^0.8.2",
+    "mapshaper": "^0.6.99",
+    "nugget": "^2.2.0",
+    "nunzip": "^1.1.2",
+    "shx": "^0.3.4",
     "vite": "^5.4.3"
   },
   "dependencies": {

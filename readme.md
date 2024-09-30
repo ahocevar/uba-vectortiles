@@ -1,14 +1,29 @@
-# OpenLayers + Vite
+# Flächeninanspruchnahme
 
-This example demonstrates how the `ol` package can be used with [Vite](https://vitejs.dev/).
+## Install dependencies
 
-To get started, run the following (requires Node 14+):
+[Node](https://nodejs.org/) version 14 or higher (recommended: 20 or higher) is required.
 
-    npx create-ol-app my-app --template vite
+For dependencies that can automatically be installed, run
 
-Then change into your new `my-app` directory and start a development server (available at http://localhost:5173):
+    npm install
 
-    cd my-app
+[Tippecanoe](https://github.com/felt/tippecanoe/) has to be installed manually. The data scripts expect a `tippecanoe` binary in the path.
+
+## Prepare data:
+
+Download `FI_2022_AT.zip` from https://docs.umweltbundesamt.at/s/cpXEnFQAEzT7LXp?path=%2F%C3%96ROK-Monitoring%202022%20-%20%C3%96sterreich%20gesamt#.
+
+Copy the downloaded file into the `data/` folder.
+
+Run
+
+       npm run data
+
+## Run the development server
+
+To get started, run the following:
+
     npm start
 
 To generate a build ready for production:
