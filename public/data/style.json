@@ -1,0 +1,190 @@
+{
+  "version": "8",
+  "center": [13.14119, 47.71554],
+  "zoom": 7,
+  "sources": {
+    "Basemap Ortho": {
+      "type": "raster",
+      "tiles": [
+        "https://mapsneu.wien.gv.at/basemap/bmaporthofoto30cm/normal/google3857/{z}/{y}/{x}.jpeg"
+      ],
+      "tileSize": 256,
+      "maxzoom": 19
+    },
+    "Basemap Overlay": {
+      "type": "raster",
+      "tiles": [
+        "https://mapsneu.wien.gv.at/basemap/bmapoverlay/normal/google3857/{z}/{y}/{x}.png"
+      ],
+      "tileSize": 256,
+      "maxzoom": 19
+    },
+    "FI_2022_AT": {
+      "type": "vector",
+      "url": "https://faas-fra1-afec6ce7.doserverless.co/api/v1/web/fn-27e85e3c-c748-48ab-97aa-a713ed4ceea4/protomaps/tiles",
+      "url_local": "pmtiles://./tiles/FI_2022_AT.pmtiles"
+    }
+  },
+  "layers": [
+    {
+      "id": "Basemap Ortho",
+      "type": "raster",
+      "source": "Basemap Ortho"
+    },
+    {
+      "id": "Orientierungsraster",
+      "type": "fill",
+      "source": "FI_2022_AT",
+      "source-layer": "FI_2022_AT_raster_10000",
+      "maxzoom": 11,
+      "paint": {
+        "fill-color": [
+          "interpolate",
+          ["linear"],
+          ["/", ["get", "area"], 10000000],
+          0,
+          "rgba(0, 255, 0, 0.5)",
+          1,
+          "rgba(220, 220, 220, 1)"
+        ]
+      }
+    },
+    {
+      "filter": ["==", "FI_Code", 101],
+      "type": "fill",
+      "source": "FI_2022_AT",
+      "source-layer": "FI_2022_AT_dissolved",
+      "minzoom": 11,
+      "paint": {
+        "fill-opacity": 0.7,
+        "fill-color": "#000000"
+      },
+      "id": "Autobahn und Schnellstraße"
+    },
+    {
+      "filter": ["==", "FI_Code", 102],
+      "type": "fill",
+      "source": "FI_2022_AT",
+      "source-layer": "FI_2022_AT_dissolved",
+      "minzoom": 11,
+      "paint": {
+        "fill-opacity": 0.7,
+        "fill-color": "#636363"
+      },
+      "id": "Landesstraße B+L"
+    },
+    {
+      "filter": ["==", "FI_Code", 103],
+      "type": "fill",
+      "source": "FI_2022_AT",
+      "source-layer": "FI_2022_AT_dissolved",
+      "minzoom": 11,
+      "paint": {
+        "fill-opacity": 0.7,
+        "fill-color": "#a8a8a8"
+      },
+      "id": "Gemeinde- und sonstige Straßen"
+    },
+    {
+      "filter": ["==", "FI_Code", 104],
+      "type": "fill",
+      "source": "FI_2022_AT",
+      "source-layer": "FI_2022_AT_dissolved",
+      "minzoom": 11,
+      "paint": {
+        "fill-opacity": 0.7,
+        "fill-color": "#dbee0a"
+      },
+      "id": "Schiene"
+    },
+    {
+      "filter": ["==", "FI_Code", 211],
+      "type": "fill",
+      "source": "FI_2022_AT",
+      "source-layer": "FI_2022_AT_dissolved",
+      "minzoom": 11,
+      "paint": {
+        "fill-opacity": 0.7,
+        "fill-color": "#ff0000"
+      },
+      "id": "Wohnnutzung"
+    },
+    {
+      "filter": ["==", "FI_Code", 212],
+      "type": "fill",
+      "source": "FI_2022_AT",
+      "source-layer": "FI_2022_AT_dissolved",
+      "minzoom": 11,
+      "paint": {
+        "fill-opacity": 0.7,
+        "fill-color": "#fd9400"
+      },
+      "id": "gemischte bauliche Nutzung"
+    },
+    {
+      "filter": ["==", "FI_Code", 213],
+      "type": "fill",
+      "source": "FI_2022_AT",
+      "source-layer": "FI_2022_AT_dissolved",
+      "minzoom": 11,
+      "paint": {
+        "fill-opacity": 0.7,
+        "fill-color": "#b10be9"
+      },
+      "id": "betriebliche Nutzung"
+    },
+    {
+      "filter": ["==", "FI_Code", 214],
+      "type": "fill",
+      "source": "FI_2022_AT",
+      "source-layer": "FI_2022_AT_dissolved",
+      "minzoom": 11,
+      "paint": {
+        "fill-opacity": 0.7,
+        "fill-color": "#fa5faa"
+      },
+      "id": "sonstige bauliche Nutzung"
+    },
+    {
+      "filter": ["==", "FI_Code", 220],
+      "type": "fill",
+      "source": "FI_2022_AT",
+      "source-layer": "FI_2022_AT_dissolved",
+      "minzoom": 11,
+      "paint": {
+        "fill-opacity": 0.7,
+        "fill-color": "#ffee01"
+      },
+      "id": "Siedlung außerhalb BL-Widmung"
+    },
+    {
+      "filter": ["==", "FI_Code", 300],
+      "type": "fill",
+      "source": "FI_2022_AT",
+      "source-layer": "FI_2022_AT_dissolved",
+      "minzoom": 11,
+      "paint": {
+        "fill-opacity": 0.7,
+        "fill-color": "#0080fd"
+      },
+      "id": "Freizeit und Erholung"
+    },
+    {
+      "filter": ["==", "FI_Code", 400],
+      "type": "fill",
+      "source": "FI_2022_AT",
+      "source-layer": "FI_2022_AT_dissolved",
+      "minzoom": 11,
+      "paint": {
+        "fill-opacity": 0.7,
+        "fill-color": "#c16803"
+      },
+      "id": "Ver- und Entsorgung"
+    },
+    {
+      "id": "Basemap Overlay",
+      "type": "raster",
+      "source": "Basemap Overlay"
+    }
+  ]
+}
