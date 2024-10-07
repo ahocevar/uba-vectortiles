@@ -2,6 +2,8 @@
   "version": "8",
   "center": [13.14119, 47.71554],
   "zoom": 7,
+  "sprite": "",
+  "glyphs": "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
   "sources": {
     "Basemap Ortho": {
       "type": "raster",
@@ -21,8 +23,7 @@
     },
     "FI_2022_AT": {
       "type": "vector",
-      "url": "https://faas-fra1-afec6ce7.doserverless.co/api/v1/web/fn-27e85e3c-c748-48ab-97aa-a713ed4ceea4/protomaps/tiles",
-      "url_local": "pmtiles://./tiles/FI_2022_AT.pmtiles"
+      "url": "https://faas-fra1-afec6ce7.doserverless.co/api/v1/web/fn-27e85e3c-c748-48ab-97aa-a713ed4ceea4/protomaps/tiles"
     }
   },
   "layers": [
