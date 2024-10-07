@@ -58,7 +58,26 @@ const gp = await GeoPackageManager.open(geoPackageFile);
 const crsDefinition = gp.getSpatialReferenceSystemDao();
 const srsId = '31287';
 const crs = crsDefinition.getBySrsId(srsId);
-crs.setDefinition('PROJCS["MGI / Austria Lambert",GEOGCS["MGI",DATUM["Militar-Geographische_Institut",SPHEROID["Bessel 1841",6377397.155,299.1528128],TOWGS84[601.705,84.263,485.227,-4.7354,-1.3145,-5.393,-2.3887]],PRIMEM["Greenwich",0,AUTHORITY["EPSG","8901"]],UNIT["degree",0.0174532925199433,AUTHORITY["EPSG","9122"]],AUTHORITY["EPSG","4312"]],PROJECTION["Lambert_Conformal_Conic_2SP"],PARAMETER["latitude_of_origin",47.5],PARAMETER["central_meridian",13.3333333333333],PARAMETER["standard_parallel_1",49],PARAMETER["standard_parallel_2",46],PARAMETER["false_easting",400000],PARAMETER["false_northing",400000],UNIT["metre",1,AUTHORITY["EPSG","9001"]],AUTHORITY["EPSG","31287"]]');
+crs.setDefinition(`PROJCS["MGI / Austria Lambert",
+    GEOGCS["MGI",
+        DATUM["Militar-Geographische_Institut",
+            SPHEROID["Bessel 1841",6377397.155,299.1528128],
+            TOWGS84[577.326,90.129,463.919,5.137,1.474,5.297,2.4232]],
+        PRIMEM["Greenwich",0,
+            AUTHORITY["EPSG","8901"]],
+        UNIT["degree",0.0174532925199433,
+            AUTHORITY["EPSG","9122"]],
+        AUTHORITY["EPSG","4312"]],
+    PROJECTION["Lambert_Conformal_Conic_2SP"],
+    PARAMETER["latitude_of_origin",47.5],
+    PARAMETER["central_meridian",13.3333333333333],
+    PARAMETER["standard_parallel_1",49],
+    PARAMETER["standard_parallel_2",46],
+    PARAMETER["false_easting",400000],
+    PARAMETER["false_northing",400000],
+    UNIT["metre",1,
+        AUTHORITY["EPSG","9001"]],
+    AUTHORITY["EPSG","31287"]]`);
 crsDefinition.update({
   srs_name: crs.srs_name,
   srs_id: crs.srs_id,

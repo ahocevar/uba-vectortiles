@@ -1,12 +1,12 @@
 import './style.css';
 import {apply, recordStyleLayer} from 'ol-mapbox-style';
 import { Link } from 'ol/interaction';
-import VectorLayer from 'ol/layer/Vector';
-import VectorSource from 'ol/source/Vector';
 import { useGeographic } from 'ol/proj';
 import { PMTiles } from 'pmtiles';
+import VectorTileLayer from 'ol/layer/VectorTile';
+import { Stroke, Style } from 'ol/style';
 
-const STYLE_URL = './styles/Flächeninanspruchnahme_2022.json';
+const STYLE_URL = './data/style.json';
 
 let styleUrl;
 const pmtilesByUrl = {};
@@ -43,6 +43,13 @@ export const transformRequest = async (url, type) => {
   return url;
 };
 
+const style = new Style({
+  stroke: new Stroke({
+    color: 'black',
+    width: 1.5,
+  }),
+});
+
 useGeographic();
 recordStyleLayer(true);
 
@@ -51,29 +58,37 @@ recordStyleLayer(true);
   map.getView().fit([8.782379, 46.358770, 17.5, 49.037872]);
   map.addInteraction(new Link());
 
-  const selection = new VectorSource({useSpatialIndex: false});
-  map.addLayer(new VectorLayer({
-    source: selection,
-    style: {
-      "stroke-color": "#000",
-      "stroke-width": 2,
-      "fill-color": "rgba(255, 0, 0, 0.1)",
-    }
-  }));
+  let ids = [];
+  const selection = new VectorTileLayer({
+    renderMode: 'vector',
+    source: map.getLayers().getArray().find(l => l instanceof VectorTileLayer).getSource(),
+    style: (feature) => ids.includes(feature.getId()) ? style : null,
+  });
+  map.addLayer(selection);
 
+  const container = map.getTargetElement();
   map.on('pointermove', (evt) => {
-    const container = map.getTargetElement();
+    if (evt.dragging) {
+      return;
+    }
     const hit = map.getFeaturesAtPixel(
       evt.pixel,
-      {layerFilter: layer => layer.getSource() !== selection});
-    if (hit.length) {
-      container.style.cursor = 'pointer';
-      container.title = hit.map(f => f.get('mapbox-layer').id).join(', ');
-    } else {
-      container.style.cursor = '';
-      container.title = '';
+      {layerFilter: layer => layer !== selection});
+      const newIds = [...new Set(hit.map(f => f.getId()))];
+    newIds.sort();
+    if (ids.toString() === newIds.toString()) {
+      return;
     }
-    selection.clear();
-    selection.addFeatures(hit);
+    ids = newIds;
+    selection.changed();
+    if (!hit.length) {
+      container.title = '';
+      return;
+    }
+    const sourceLayer = hit[0].get('mapbox-layer')?.id;
+    const title = sourceLayer === 'Orientierungsraster'
+      ? Math.round(hit[0].get('area') / 1000000) + ' % beansprucht'
+      : sourceLayer;
+      container.title = title;
   });
 })();
