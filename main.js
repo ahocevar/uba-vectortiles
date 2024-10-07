@@ -1,10 +1,12 @@
 import './style.css';
 import {apply, recordStyleLayer} from 'ol-mapbox-style';
 import { Link } from 'ol/interaction';
+import { Attribution, defaults } from 'ol/control';
 import { useGeographic } from 'ol/proj';
 import { PMTiles } from 'pmtiles';
 import VectorTileLayer from 'ol/layer/VectorTile';
 import { Fill, Style } from 'ol/style';
+import { Map } from 'ol';
 
 const STYLE_URL = './data/style.json';
 
@@ -53,9 +55,21 @@ useGeographic();
 recordStyleLayer(true);
 
 (async () => {
-  const map = await apply('map', STYLE_URL, {transformRequest});
+  const map = new Map({
+    target: 'map',
+    controls: defaults({attribution: false})
+  });
+  await apply(map, STYLE_URL, {transformRequest});
   map.getView().fit([8.782379, 46.358770, 17.5, 49.037872]);
   map.addInteraction(new Link());
+  map.addControl(new Attribution({
+    collapsible: false,
+    attributions: [
+      'Grundkarte: <a href="https://www.basemap.at">basemap.at</a>',
+      'ÖROK-Monitoring Flächeninanspruchnahme und Versiegelung (2022); Bearbeitung: Umweltbundesamt GmbH',
+      'Datenquelle: Statistik Austria - data.statistik.gv.at'
+    ]
+  }));
 
   let ids = [];
   const selection = new VectorTileLayer({
