@@ -4,7 +4,7 @@ import { Link } from 'ol/interaction';
 import { useGeographic } from 'ol/proj';
 import { PMTiles } from 'pmtiles';
 import VectorTileLayer from 'ol/layer/VectorTile';
-import { Stroke, Style } from 'ol/style';
+import { Fill, Style } from 'ol/style';
 
 const STYLE_URL = './data/style.json';
 
@@ -44,9 +44,8 @@ export const transformRequest = async (url, type) => {
 };
 
 const style = new Style({
-  stroke: new Stroke({
-    color: 'black',
-    width: 1.5,
+  fill: new Fill({
+    color: 'rgba(0, 0, 0, 0.1)'
   }),
 });
 
@@ -91,4 +90,10 @@ recordStyleLayer(true);
       : sourceLayer;
       container.title = title;
   });
+
+  map.on('moveend', () => {
+    if (map.getView().getZoom() < 11) {
+      map.once('click', (event) => map.getView().animate({zoom: 11, center: event.coordinate}));
+    }
+  })
 })();
