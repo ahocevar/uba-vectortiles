@@ -67,7 +67,7 @@ recordStyleLayer(true);
     attributions: [
       'Grundkarte: <a href="https://www.basemap.at">basemap.at</a>',
       'ÖROK-Monitoring Flächeninanspruchnahme und Versiegelung (2022); Bearbeitung: Umweltbundesamt GmbH',
-      'Datenquelle: Statistik Austria - data.statistik.gv.at'
+      'Datenquelle: Statistik Austria - <a href="https://data.statistik.gv.at">data.statistik.gv.at</a>'
     ]
   }));
 
