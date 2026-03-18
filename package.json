@@ -31,6 +31,7 @@
   "dependencies": {
     "ol": "^10.2.1",
     "ol-mapbox-style": "^12.3.5",
-    "pmtiles": "^3.2.0"
+    "pmtiles": "^3.2.0",
+    "pmtiles-protocol": "^1.1.2"
   }
 }
