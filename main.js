@@ -23,20 +23,11 @@ recordStyleLayer(true);
 
 (async () => {
   const map = new Map({
-    target: 'map',
-    controls: defaults({attribution: false})
+    target: 'map'
   });
   await apply(map, STYLE_URL);
   map.getView().fit([8.782379, 46.358770, 17.5, 49.037872]);
   map.addInteraction(new Link());
-  map.addControl(new Attribution({
-    collapsible: false,
-    attributions: [
-      'Grundkarte: <a href="https://www.basemap.at">basemap.at</a>',
-      'ÖROK-Monitoring Flächeninanspruchnahme und Versiegelung (2022); Bearbeitung: <a href="https://www.umweltbundesamt.at">Umweltbundesamt GmbH</a>',
-      'Datenquelle: Statistik Austria - <a href="https://data.statistik.gv.at">data.statistik.gv.at</a>'
-    ]
-  }));
 
   let ids = [];
   const selection = new VectorTileLayer({

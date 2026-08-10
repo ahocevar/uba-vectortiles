@@ -11,7 +11,8 @@
         "https://mapsneu.wien.gv.at/basemap/bmaporthofoto30cm/normal/google3857/{z}/{y}/{x}.jpeg"
       ],
       "tileSize": 256,
-      "maxzoom": 19
+      "maxzoom": 19,
+      "attribution": "Grundkarte: <a href=\"https://www.basemap.at\">basemap.at</a>"
     },
     "Basemap Overlay": {
       "type": "raster",
@@ -19,11 +20,14 @@
         "https://mapsneu.wien.gv.at/basemap/bmapoverlay/normal/google3857/{z}/{y}/{x}.png"
       ],
       "tileSize": 256,
-      "maxzoom": 19
+      "maxzoom": 19,
+      "attribution": "Grundkarte: <a href=\"https://www.basemap.at\">basemap.at</a>"
+
     },
     "FI_2022_AT": {
       "type": "vector",
-      "url": "pmtiles://https://ahocevar.net/uba-vectortiles-data/FI_2022_AT.pmtiles"
+      "url": "pmtiles://data/tiles/FI_2022_AT.pmtiles",
+      "attribution": "ÖROK-Monitoring Flächeninanspruchnahme und Versiegelung (2022); Bearbeitung: <a href=\"https://www.umweltbundesamt.at\">Umweltbundesamt GmbH</a>; Datenquelle: Statistik Austria - <a href=\"https://data.statistik.gv.at\">data.statistik.gv.at</a>"
     }
   },
   "layers": [
